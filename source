@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>James Agar | Cinematic Content Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Literata:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- 1. KODAK COLOR PALETTE --- */
+        :root {
+            --color-yellow: #fcb213; /* Primary Kodak Yellow */
+            --color-orange: #e9420b; /* Bright Accent/Action */
+            --color-teal: #5097ae;   /* Secondary Accent/Teal */
+            --color-navy: #243267;   /* Deep Navy/Text Base */
+        }
+        .bg-yellow-kodak { background-color: var(--color-yellow); }
+        .bg-orange-accent { background-color: var(--color-orange); }
+        .bg-teal-accent { background-color: var(--color-teal); }
+        .bg-navy-dark { background-color: var(--color-navy); }
+        .text-yellow-kodak { color: var(--color-yellow); }
+        .text-orange-accent { color: var(--color-orange); }
+        .text-teal-accent { color: var(--color-teal); }
+        .text-navy-dark { color: var(--color-navy); }
+
+        /* --- 2. SUPER 8 FILM / GRAIN EFFECT --- */
+        body {
+            font-family: 'Literata', serif;
+            color: var(--color-navy);
+            background-color: #f5f5f5; /* Off-white base */
+            overflow-x: hidden;
+            /* Base filter for a slightly desaturated, vintage look */
+            filter: saturate(105%) contrast(100%); 
+        }
+        /* CSS for the pervasive film grain/noise */
+        .film-grain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 100; 
+            /* Subtle fractal noise for grain */
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+        }
+
+        /* --- 3. TYPOGRAPHY & LAYOUT --- */
+        h1, h2, .section-title {
+            font-family: 'Archivo Black', sans-serif;
+            line-height: 1.1;
+        }
+        .section-title {
+            font-size: 3rem;
+            letter-spacing: 0.1em;
+        }
+        .strip-divider {
+            height: 1.5rem;
+            width: 100%;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Custom animation */
+        .motion-fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+        }
+        .motion-in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50">
+    <div class="film-grain"></div>
+
+    <header class="h-screen w-full flex items-center bg-yellow-kodak text-navy-dark">
+        <div class="max-w-7xl mx-auto p-10 text-center motion-fade-in" id="hero-content">
+            <h1 class="text-7xl md:text-9xl text-white tracking-tighter shadow-lg">
+                JAMES AGAR
+            </h1>
+            <p class="text-3xl md:text-5xl font-bold mt-4 border-t-4 border-b-4 border-navy-dark py-2 inline-block shadow-md">
+                CINEMATIC CONTENT CREATOR
+            </p>
+            <p class="mt-8 text-xl max-w-3xl mx-auto italic font-bold">
+                "Crafting compelling narratives that drive engagement and deliver measurable results—like a director with a camera, an editor with a reel, and an analyst with an audience."
+            </p>
+            
+            <a href="#about" class="mt-12 inline-block bg-orange-accent text-white font-bold py-3 px-8 text-lg uppercase tracking-wider hover:bg-orange-600 transition duration-300 shadow-xl">
+                Start The Reel
+            </a>
+        </div>
+    </header>
+
+    <nav class="sticky top-0 z-50 w-full bg-navy-dark p-3 shadow-2xl">
+        <div class="max-w-7xl mx-auto flex justify-between text-white font-bold text-sm md:text-base">
+            <div class="space-x-4">
+                <a href="#about" class="hover:text-yellow-kodak transition">PROFILE</a>
+                <a href="#projects" class="hover:text-yellow-kodak transition">PROJECTS</a>
+                <a href="#skills" class="hover:text-yellow-kodak transition">SKILLS</a>
+            </div>
+            <div class="space-x-4">
+                <a href="https://www.youtube.com/bootwizard" target="_blank" class="hover:text-teal-accent transition">YouTube</a>
+                <a href="https://www.tiktok.com/@bootwizard" target="_blank" class="hover:text-teal-accent transition">TikTok</a>
+                <a href="https://www.instagram.com/bootwizard" target="_blank" class="hover:text-teal-accent transition">Instagram</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="about" class="py-20 bg-white">
+        <div class="strip-divider bg-teal-accent"></div>
+        
+        <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-10 p-6 pt-16">
+            <div class="col-span-1 border-r-4 border-teal-accent pr-8 motion-fade-in">
+                <h2 class="section-title text-teal-accent">PROFILE</h2>
+                <div class="mt-4 space-y-2 text-sm font-bold text-navy-dark">
+                    <p>📧 jtagar@gmail.com</p>
+                    <p>📞 +353-85-1673729</p>
+                    <p>📍 Cork, Ireland</p>
+                </div>
+            </div>
+            <div class="col-span-2 space-y-6 text-lg motion-fade-in">
+                <p class="font-bold text-2xl text-orange-accent">
+                    A dynamic content creator specializing in video production and social media strategy.
+                </p>
+                <p>
+                    I am an expert social media content creator and editor with a proven ability to develop engaging content that resonates with audiences. My expertise covers the full media pipeline: from idea conception and script writing, through presenting and completing all necessary editing.
+                </p>
+                <p>
+                    I excel at leveraging skills in videography, social media analytics, and Adobe Premiere Pro to deliver measurable results and continuously seek innovative ways to elevate content quality and reach.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-20 bg-gray-100">
+        <div class="strip-divider bg-orange-accent"></div>
+
+        <div class="max-w-7xl mx-auto p-6 pt-16">
+            <h2 class="section-title text-navy-dark text-center motion-fade-in mb-16">PROJECTS & REELS</h2>
+
+            <div class="grid md:grid-cols-12 gap-10 mb-20 items-center">
+                <div class="md:col-span-5 space-y-4 motion-fade-in">
+                    <h3 class="text-4xl font-bold text-yellow-kodak">BOOT WIZARD - BOOT REVIEWS</h3>
+                    <p class="text-lg italic font-bold text-orange-accent">
+                        Independent Business & Video Production Hub (Since 2019)
+                    </p>
+                    <p>
+                        This project showcases a passion for football boots and video production, which has become a social media success and trusted voice in the community. Content ranges from deep-dive in-studio reviews to short-form TikTok engagement.
+                    </p>
+                    <ul class="list-disc list-inside space-y-1 pl-4 text-sm font-bold">
+                        <li>Over **75,000** followers/subscribers across all platforms.</li>
+                        <li>Drives nearly **4 million** views per month.</li>
+                        <li>Worked with brands like **Nike, Lotto, and Skechers**.</li>
+                    </ul>
+                    <div class="pt-4">
+                        <a href="https://www.youtube.com/bootwizard" target="_blank" class="inline-block bg-navy-dark text-white font-bold py-2 px-4 text-sm hover:bg-teal-accent transition">View YouTube Channel</a>
+                        <a href="https://www.tiktok.com/@bootwizard" target="_blank" class="inline-block bg-navy-dark text-white font-bold py-2 px-4 text-sm ml-2 hover:bg-teal-accent transition">View TikTok Feed</a>
+                    </div>
+                </div>
+                <div class="md:col-span-7 motion-fade-in shadow-2xl">
+                    <div class="aspect-video bg-navy-dark flex items-center justify-center p-4">
+                         <p class="text-white text-xl font-bold">Boot Wizard Video Showcase Placeholder</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-12 gap-10 items-center">
+                <div class="md:col-span-7 motion-fade-in shadow-2xl">
+                    <h3 class="text-4xl font-bold
